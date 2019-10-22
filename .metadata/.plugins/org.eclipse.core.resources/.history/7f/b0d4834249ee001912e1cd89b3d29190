@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Equal Height Javascript</title>
+
+<style type="text/css">
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #636363;
+	font-size: 12px;
+}
+
+#left_column {
+	float: left;
+	width: 180px;
+	border: solid 1px #ccc;
+	padding: 10px;
+	margin: 0 20px 0 0;
+}
+
+#right_column {
+	float: left;
+	width: 180px;
+	border: solid 1px #ccc;
+	padding: 20px;
+}
+
+</style>
+
+<script src="js/script.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<script>
+<script type="text/javascript">
+matchColumns=function(){ 
+     var divs,contDivs,maxHeight,divHeight,d; 
+     divs=document.getElementsByTagName('div'); 
+     contDivs=[]; 
+     maxHeight=0;  
+     for(var i=0;i<divs.length;i++){  
+          // make collection with <div> elements with class attribute "equal"
+          if(/\bequal\b/.test(divs[i].className)){ 
+                d=divs[i]; 
+                contDivs[contDivs.length]=d;  
+                if(d.offsetHeight){ 
+                     divHeight=d.offsetHeight; 					
+                } 
+                else if(d.style.pixelHeight){ 
+                     divHeight=d.style.pixelHeight;					 
+                } 
+                maxHeight=Math.max(maxHeight,divHeight); 
+          } 
+     } 
+     for(var i=0;i<contDivs.length;i++){ 
+          contDivs[i].style.height=maxHeight + "px"; 
+     } 
+}  
+window.onload=function(){ 
+     if(document.getElementsByTagName){ 
+          matchColumns();			 
+     } 
+} 
+</script>
+		
+
+
+<div id="left_column">
+<p>Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column. Lorum ipsum text to fill up the left column.</p>
+</div>
+
+<div id="right_column">
+<p>Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column. Lorum ipsum text to fill up the right column.</p>
+</div>
+
+</body>
+</html>

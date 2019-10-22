@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>Ascending Order</h3>
+<script>
+var array = new Array(90,10,30,40,5);
+        for(var i=0;i<array .length;i++) //Hold the first element
+    {
+        for(var j=i+1;j<array.length;j++) //Hold the next element from the first element
+        {
+            if(Number(array[i]) > Number(array[j])) //comparing first and next element
+            {
+                tempValue = array[j];   
+                array[j] = array[i];
+                array[i] = tempValue;
+            }
+        }
+    }
+        document.write(array);
+
+</script>
+
+<br>
+<h3>First Element</h3>
+<br>
+ <script>
+ var a = [90,10,30,40,5];
+a.unshift(33);
+document.write(a);
+</script>
+
+<br>
+<h3>Middle Element</h3>
+<br>
+<script>
+ var a = [90,10,30,40,5];
+a.splice(1,0,33);
+document.write(a);
+</script>
+<br>
+<h3>Multiplication</h3>
+<br>
+<script>
+var array = [1,2,3];
+var newarray = array.map(function(element) { //func to run on each element of array
+	return element*2;
+});
+document.write(newarray);
+</script>
+</body>
+</html>

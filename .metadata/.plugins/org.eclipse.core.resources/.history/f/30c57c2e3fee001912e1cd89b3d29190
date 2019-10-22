@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Style: Three Column Fixed|Fluid|Fixed #3 With Javascript</title>
+<style type="text/css">
+
+body, address, blockquote, dl, ol, ul, li, form, fieldset, h1, h2, h3, h4, h5, h6, p, pre {
+    margin: 0;
+    padding: 0;
+}
+fieldset, table {
+    border: none;
+}
+a {
+    outline: 0;
+}
+/* --------------- Document Defaults -------------- */
+html {
+    font-size: 100.01%;
+    height: 100%;
+}
+body {
+    height: 100%;
+    font: 62.5%/1.5 Tahoma, Arial, Helvetica, 'MS Sans Serif', sans-serif;
+    color: #333;
+    background: #CCC;
+}
+/* ------------------ Typography ------------------- */
+h1 {
+    font-size: 3em;
+    font-family: Arial;
+    font-weight: normal;
+    line-height: 3.5;
+    text-align: center;
+}
+h2 {
+    font-size: 1.8em;
+    padding: 20px 0 0;
+}
+h3 {
+    font-size: 1.6em;
+    margin: 70px 0 0;
+}
+p {
+    font-size: 1.2em;
+    margin: 0 0 1em;
+    text-align: justify;
+}
+/* -------------------- Layout --------------------- */
+#wrapper {
+    margin: 0 auto;
+    min-width: 770px; /* the JS gets a little buggy below 770px */
+    max-width: 1280px;
+    min-height: 100%;
+}
+#left {
+    float: left; 
+    width: 200px;
+    height: 250px;
+    text-align: center;
+    background: #999;
+}
+
+#right {
+    float: right;
+    width: 200px;
+    height: 250px;
+    text-align: center;
+    background: #999;
+}
+#content {
+    margin: 0 220px;
+}
+#content2 {
+	padding: 20px 0; /* if using javascript add this div for padding of content */
+}
+#clearfooter {
+    height: 70px;
+    clear: both;
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+matchColumns=function(){ 
+     var divs,contDivs,maxHeight,divHeight,d; 
+     divs=document.getElementsByTagName('div'); 
+     contDivs=[];  
+     maxHeight=0; 
+     for(var i=0;i<divs.length;i++){ 
+          // make collection with <div> elements with class attribute "equal" 
+          if(/\bequal\b/.test(divs[i].className)){ 
+                d=divs[i]; 
+                contDivs[contDivs.length]=d;  
+          } 
+     } 
+     for(var i=0;i<contDivs.length;i++){ 
+          contDivs[i].style.height="auto"; 
+     } 
+         // assign maximum height value to all of the container <div> elements 
+         var pHeight = document.getElementById("wrapper").offsetHeight;
+         var hHeight = document.getElementById("header").offsetHeight;
+         var fHeight = document.getElementById("footer").offsetHeight;
+     for(var i=0;i<contDivs.length;i++){ 
+          contDivs[i].style.height=(pHeight - hHeight - fHeight) + "px"; 
+     } 
+}
+window.onload=function(){ 
+
+     if(document.getElementsByTagName){ 
+                    matchColumns();             
+ } 
+} 
+var currheight;
+window.onresize = function(){
+    if(currheight != document.documentElement.clientHeight)
+    {
+        matchColumns();    
+    }
+    currheight = document.documentElement.clientHeight;
+}
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+
+
+<div id="left" class="equal">
+<h3>Left</h3>
+</div>
+    
+<div id="right" class="equal">
+<h3>right</h3>
+</div>
+    
+<div id="content" class="equal">
+<div id="content2">
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque tempor. Nam in libero vel nisi accumsan euismod. Quisque quis neque. Donec condimentum, enim convallis vestibulum varius, quam mi accumsan diam, sollicitudin ultricies odio ante vitae purus. Etiam ultricies quam. Vestibulum turpis turpis, fermentum ut, accumsan quis, tempor at, ipsum. Nam felis elit, sollicitudin id, ultrices faucibus, fringilla vel, dui. Aliquam tincidunt iaculis eros. Sed in lorem. Nullam eu enim. Quisque tristique pretium diam. Fusce tempor sollicitudin ligula. Donec purus eros, mattis quis, mattis vestibulum, congue quis, felis. Nulla facilisi. Nam ultricies posuere justo. In feugiat.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque tempor. Nam in libero vel nisi accumsan euismod. Quisque quis neque. Donec condimentum, enim convallis vestibulum varius, quam mi accumsan diam, sollicitudin ultricies odio ante vitae purus. Etiam ultricies quam. Vestibulum turpis turpis, fermentum ut, accumsan quis, tempor at, ipsum. Nam felis elit, sollicitudin id, ultrices faucibus, fringilla vel, dui. Aliquam tincidunt iaculis eros. Sed in lorem. Nullam eu enim. Quisque tristique pretium diam. Fusce tempor sollicitudin ligula. Donec purus eros, mattis quis, mattis vestibulum, congue quis, felis. Nulla facilisi. Nam ultricies posuere justo. In feugiat.</p>
+</div><!-- end #content2 -->
+</div><!-- end #content -->
+
+<div id="clearfooter">
+</div>
+
+</div><!-- end #wrapper -->
+
+
+
+</body>
+</html>
+	
